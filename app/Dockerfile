@@ -2,8 +2,8 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY server.js .
+COPY app.js .
 
 ENV AUTHOR="Unknown"
 
-CMD ["node", "server.js"]
+CMD ["node", "app.js"]
