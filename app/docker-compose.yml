@@ -5,7 +5,7 @@ services:
     build: .
     environment:
       - AUTHOR=devbrick
-      - UUID=${UUID}
+      - UUID=1
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/"]
       interval: 30s
