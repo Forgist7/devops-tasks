@@ -1,9 +1,9 @@
-FROM node:14
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY app.js .
+COPY server.js .
 
-EXPOSE 8000
+ENV AUTHOR="Unknown"
 
-CMD ["node", "app.js"]
+CMD ["node", "server.js"]
