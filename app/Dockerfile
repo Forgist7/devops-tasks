@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY app.js .
 
-ENV AUTHOR="Unknown"
+ENV AUTHOR="brickdev"
 
 CMD ["node", "app.js"]
