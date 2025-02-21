@@ -9,10 +9,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - AUTHOR=YourName
+      - AUTHOR=brickdev
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/hostname"]
       interval: 10s
       timeout: 5s
       retries: 3
-    entrypoint: [ "sh", "-c", "export UUID=$(hostname) && node server.js" ]
+    entrypoint: [ "sh", "-c", "export UUID=$(hostname) && node app.js" ]
