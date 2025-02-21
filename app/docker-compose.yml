@@ -2,16 +2,17 @@ version: '3.8'
 
 services:
   web:
+    image: nodejs-web-app
     build: .
-    environment:
-      - AUTHOR=devbrick
-      - UUID=${UUID}
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
     deploy:
       replicas: 3
-      restart_policy:
-        condition: on-failure
+    ports:
+      - "8000:8000"
+    environment:
+      - AUTHOR=YourName
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/hostname"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    entrypoint: [ "sh", "-c", "export UUID=$(hostname) && node server.js" ]
